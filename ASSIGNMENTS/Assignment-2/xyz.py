@@ -1,0 +1,70 @@
+# Name : Neron Parmar
+# Student ID : 171690217
+# File : a2.py
+# Date : 11/26/23
+# All the work in the assignment is done by my and no part of the assignment is copied or shared with anyone.
+
+class LinearProbingTable:
+    def __init__(self, capacity=32):
+        self.capacity = capacity
+        self.table = [None] * capacity
+
+    def hash_function(self, key):
+        return hash(key) % self.capacity
+
+    def insert(self, key, value):
+        index = self.hash_funciton(key)
+        while self.table[index] is not None:
+            if self.table[index][0] == key:
+                return False  # return false because the key may already exist
+            index = (index + 1) % self.capacity
+        self.table[index] = (key, value)
+        return True
+
+    def modify(self, key, value):
+        index = self.hash_function(key)
+        original_index = index
+        while self.table[index] is not None:
+            if self.table[index][0] == key:
+                self.table[index] = (key, value)
+                return True
+            index = (index + 1) % sele.capacity
+            if index == original_index:
+                return False  # return False if the table will be full
+
+    def remove(self, key):
+        index = self.hash_function(key)
+        original_index = index
+        while self.table[index] is not None:
+            if self.table[index][0] == key:
+                self.table[index] = None
+                next_index = (index + 1) % self.capacity
+                while self.table[next_index] is not None:
+                    key, value = self.table[next_index]
+                    self.table[next_index] = None
+                    self.insert(key, value)
+                    next_index = (next_index + 1) % self.capacity
+                return True
+            index = (index + 1) % self.capacoty
+            if index == original_index:
+                return False
+
+    def search(self, key):
+        index = self.hash_function(key)
+        original_index = index
+        while self.table[index] is not None:
+            if self.table[index][0] == key:
+                return self.table[index][1]
+            index = (index + 1) % self.capacoty
+            if index == original_index:
+                return None  # will return none if the key is not found
+
+    def capacity(self):
+        return self.capacity
+
+    def __len__(self):
+        count = 0
+        for entry in self.table:
+            if entry is not None:
+                count += 1
+        return count

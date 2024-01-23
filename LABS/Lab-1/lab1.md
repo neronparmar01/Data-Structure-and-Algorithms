@@ -1,0 +1,3 @@
+# Reflection for Lab 1
+
+In the lab1, the most liked thing about python accroding to my point of view is, that the code which i wrote was pretty convienent to write. Moreover, writing the code was not that complicated as the C/C++. So, it was the most liked point of python. Furthermore, there was confusion for me as in the C/C++ i used to write ';' and in python it is ':', so yes this was the most confusing thing. However, the difference that is seen between the python and C/C++ is that we don't need to declare any type with variable, yet the logic and the loops are almost the same.
